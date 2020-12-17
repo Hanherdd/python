@@ -1,0 +1,14 @@
+# python
+csv_file = r"E:\2020_Geosoftware\3 data\data_from_GLD_Ind_edited_100.csv"
+uri = ("file:///{}?"
+"&delimiter={}"
+"&xField={}"
+"&yField={}"
+"&crs={}").format(csv_file,
+",",
+"Longitude [degrees_east]",
+"Latitude [degrees_north]",
+"EPSG:4326")
+vlayer = QgsVectorLayer(uri, "layer","delimitedtext")
+QgsVectorFileWriter.writeAsVectorFormat(vlayer,'E:\\2020_Geosoftware\\3 data\\data_gld.shp',"utf-8",QgsCoordinateReferenceSystem('EPSG:4326'),'ESRI Shapefile')
+(0, '')
